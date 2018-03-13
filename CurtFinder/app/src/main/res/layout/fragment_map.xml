@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.michelroeun.curtfinder.fragment.MapFragment">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/mapAPI" />
+
+    <ImageButton
+        android:id="@+id/favoriteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/ic_btn_favorite"
+        android:elevation="10dp"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tint="@color/register_login" />
+    <ImageButton
+        android:id="@+id/currentLocationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/ic_btn_location"
+        android:elevation="10dp"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tint="@color/register_login" />
+
+</FrameLayout>

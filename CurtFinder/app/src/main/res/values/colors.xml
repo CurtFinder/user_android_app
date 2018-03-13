@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="leftMenuBackground">#001829</color>
+    <color name="leftMenuIcon">#1eaffc</color>
+    <color name="leftMenuIconText">#f8fbff</color>
+    <!--<color name="colorAccent">#263957</color>-->
+    <color name="colorAccentOpacity">#9c263957</color>
+    <!--<color name="colorPrimaryDark">#263957</color>-->
+    <!--<color name="colorPrimaryDark">#061826</color>-->
+    <!--<color name="colorPrimaryDark">#00121e</color>-->
+    <color name="other_text">#bdbdbd</color>
+    <color name="passcode_bg">#1EAFFC</color>
+    <color name="passcode_bg_opacity">#521eaffc</color>
+    <color name="passcode_number_forground">#e3eefe</color>
+    <color name="sucess_icon">#1EACF8</color>
+    <color name="user_status">#0E7174</color>
+    <color name="user_account_bg">#F4F5F6</color>
+    <color name="btn_bg">#f7f8f9</color>
+    <color name="btn_text">#245265</color>
+    <color name="calling_style_bg">#263757</color>
+    <color name="calling_intro_text">#3bc1ff</color>
+    <color name="cancel_calling_btn">#1f2c46</color>
+    <color name="cancel_calling_btn_tran">#e0001829</color>
+    <color name="driver_arrive_bg">#00CA9D</color>
+    <color name="trip_detail_icon">#217c8e</color>
+    <color name="trip_price">#37B0C9</color>
+    <color name="driver_arrive_penel_bg">#EDFFF1</color>
+    <color name="driver_coming_penel_bg">#F7F8F9</color>
+    <color name="driver_coming_panel_bg_tran">#f4f7f8f9</color>
+    <color name="driver_coming_bg">#e6e6e6</color>
+    <color name="end_trip_btn">#d32121</color>
+    <color name="more_point_bg">#9a001829</color>
+    <color name="close_icon">#8e1919</color>
+    <color name="popup_bg">#E6EAEB</color>
+    <color name="popup_text">#1a99fb</color>
+    <color name="register_login">#37b0c9</color>
+    <color name="onboarding_screen">#004A80</color>
+    <color name="white">#ffffff</color>
+    <color name="black_tran">#9f000000</color>
+
+    <!--Trip History Listview-->
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="list_divider">#ededed</color>
+    <color name="list_row_start_color">#e7e7e7</color>
+    <color name="list_row_end_color">#e7e7e7</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+
+    <!--Setting-->
+    <color name="setting_header">#1174B9</color>
+    <color name="setting_font">#A4A5A6</color>
+    <color name="reset_btn">#E8212E</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="driver_info_text_label">#222222</color>
+
+    <!--Trip History-->
+    <color name="cancel_bg">#EF5350</color>
+
+    <!--Other-->
+    <color name="change_pin_status_bar">#37B0C9</color>
+    <color name="change_pin_bg">#0fffffff</color>
+    <color name="change_pin_press_bg">#1effffff</color>
+    <color name="driver_name">#353D3E</color>
+</resources>
