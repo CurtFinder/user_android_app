@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@null"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme.NoActionBar"
     tools:context="com.example.michelroeun.curtfinder.HomeActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-    </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_home" />
 
     <android.support.v7.widget.Toolbar
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="0dp"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -72,26 +65,26 @@
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:paddingBottom="3dp"
-                android:paddingLeft="5dp"
+                android:paddingLeft="10dp"
                 android:paddingRight="5dp"
                 android:paddingTop="3dp"
                 android:text="@string/search_hint"
                 android:textColor="#1A1919"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
                     android:elevation="10dp"
                     android:src="@drawable/ic_pin_marker" />
@@ -100,4 +93,4 @@
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

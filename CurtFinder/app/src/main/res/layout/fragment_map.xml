@@ -2,13 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:theme="@style/AppTheme.NoActionBar"
     tools:context="com.example.michelroeun.curtfinder.fragment.MapFragment">
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:theme="@style/AppTheme.NoActionBar"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/mapAPI" />
 

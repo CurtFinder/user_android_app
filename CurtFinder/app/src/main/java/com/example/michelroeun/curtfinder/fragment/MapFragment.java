@@ -2,16 +2,15 @@ package com.example.michelroeun.curtfinder.fragment;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.location.Address;
-import android.location.Geocoder;
+import android.graphics.Color;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -21,8 +20,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -55,7 +52,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
     private ImageButton currentLoc;
     private GoogleApiClient googleApiClient;
     private boolean shouldMapMove = true;
-
+    private LocationManager locationManager;
+    private String provider;
     Location mLastLocation;
     LocationRequest mLocationRequest;
 
@@ -72,7 +70,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
         }
         mapFragment = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapAPI));
         mapFragment.getMapAsync(this);
-
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        provider = locationManager.getBestProvider(new Criteria(), false);
         currentLoc = (ImageButton)v.findViewById(R.id.currentLocationBtn);
         currentLoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +93,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Home");
+        getActivity().getWindow().setNavigationBarColor(Color.parseColor("#000000"));
     }
 
     @Override
@@ -102,7 +102,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
             googleMap = ggmap;
             googleMap.getUiSettings().setMapToolbarEnabled(false);
             googleMap.getUiSettings().setMyLocationButtonEnabled(false);
-
             try {
                 boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getActivity(), R.raw.style_json));
 
@@ -117,11 +116,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                 {
                     buildGoogleApiClient();
-                    //googleMap.setMyLocationEnabled(true);
+                    googleMap.setMyLocationEnabled(true);
+                    //loadMap(mLastLocation.getLatitude(),mLastLocation.getLongitude());
                 }
             } else {
                 buildGoogleApiClient();
-                //googleMap.setMyLocationEnabled(true);
+                googleMap.setMyLocationEnabled(true);
+                //loadMap(mLastLocation.getLatitude(),mLastLocation.getLongitude());
             }
         }
     }
@@ -152,15 +153,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
         super.onStart();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
 
     public boolean checkLocationPermission(){
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
@@ -207,14 +199,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
                         if (googleApiClient == null) {
                             buildGoogleApiClient();
                         }
-                        googleMap.setMyLocationEnabled(true);
-                        loadMap(mLastLocation.getLatitude(),mLastLocation.getLatitude());
                     }
 
                 } else {
                     Toast.makeText(getActivity(), "permission denied", Toast.LENGTH_LONG).show();
                 }
-                return;
             }
         }
     }
@@ -234,6 +223,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
 
     @Override
     public void onLocationChanged(Location location) {
@@ -260,10 +256,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,GoogleAp
         }
         if(shouldMapMove)
         {
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userMarker.getPosition(),ZOOM_LEVEL),1000,null);
-            shouldMapMove = false;
-        }
 
+        }
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userMarker.getPosition(),ZOOM_LEVEL),1000,null);
+        shouldMapMove = false;
         //stop location updates
         //if (googleApiClient != null) {
         //    LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);

@@ -9,6 +9,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,5 +31,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     compile 'com.google.android.gms:play-services-maps:9.8.0'
     compile 'com.google.android.gms:play-services-location:9.8.0'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     testCompile 'junit:junit:4.12'
 }
